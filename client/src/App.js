@@ -1,15 +1,22 @@
-import './App.css';
+import { PostContainers } from './context/PostContext'
 import { HomePage, NotFoundPage, PostForm } from './pages/index'
 import { Routes, Route } from 'react-router-dom'
+
+
+import './App.css';
 function App() {
   return (
-    <div className="container">
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/newest' element={<PostForm />} />
-        <Route path='*' element={<NotFoundPage />} />
-      </Routes>
-    </div> 
+    <div className="min-h-screen  flex items-center">
+      <div className="px-10 container m-auto">
+        <PostContainers>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/new' element={<PostForm />} />
+            <Route path='*' element={<NotFoundPage />} />
+          </Routes>
+        </PostContainers>
+      </div>
+    </div>
   );
 }
 
