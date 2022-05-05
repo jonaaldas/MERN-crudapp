@@ -25,7 +25,7 @@ export const createPost = async (req, res) => {
       title,
       description
     } = req.body
-    let img;
+    let image;
 
     if (req.files?.image) {
       const result = await uploadIamge(req.files.image.tempFilePath)
@@ -40,9 +40,8 @@ export const createPost = async (req, res) => {
     const newPost = new Post({
       title,
       description,
-      img
+      image
     })
-    console.log(newPost)
     await newPost.save()
     return res.json(newPost)
   } catch (err) {
@@ -60,7 +59,7 @@ export const updatePost = async (req, res) => {
     const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     })
-    return res.send(updatePost)
+    return res.send(updatedPost)
   } catch (err) {
     console.error(error.message)
     return res.status(500).json({

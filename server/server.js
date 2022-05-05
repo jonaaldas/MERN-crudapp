@@ -11,6 +11,6 @@ mongoDB()
 // use it before all route definitions
 
 
-const port = 4014
+const port = 4017
 app.listen(port) 
 console.log(`server is running in port ${port}`)

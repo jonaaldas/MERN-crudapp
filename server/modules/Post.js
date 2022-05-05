@@ -11,7 +11,7 @@ const Schema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  img:{
+  image:{
     url: String, 
     public_id: String
   }
